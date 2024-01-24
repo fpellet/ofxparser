@@ -58,13 +58,11 @@ class InvestmentValid extends InvestmentNoLoadOfx
  */
 class InvestmentTest extends TestCase
 {
-    /**
-     * @expectedException \Exception
-     */
     public function testLoadOfxException()
     {
         $xml = new SimpleXMLElement('<xml></xml>');
         $entity = new InvestmentNoLoadOfx();
+        $this->expectException(\Exception::class);
         $entity->loadOfx($xml);
     }
 
